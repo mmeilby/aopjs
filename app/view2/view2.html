@@ -1,0 +1,131 @@
+<div layout="column" ng-cloak style="float: left;">
+  <md-content md-theme="docs-dark" layout-padding>
+    <div layout="column">
+      <div layout="row">
+        <md-input-container>
+          <label for="principal">Lånebeløb</label>
+          <input type="number" id="principal" ng-model="loanDetails.principal" required md-autofocus>
+        </md-input-container>
+        <md-input-container>
+          <label for="payment">Fast ydelse uden gebyr</label>
+          <input type="number" id="payment" ng-model="financeOptions.periods[selectedPeriod].payment" ng-disabled="!financeOptions.periods[selectedPeriod].usePayment">
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container>
+          <label for="periods">Lånets længde i terminer</label>
+          <input type="number" id="periods" ng-model="financeOptions.periods[selectedPeriod].periods" ng-disabled="financeOptions.periods[selectedPeriod].usePayment">
+        </md-input-container>
+        <md-input-container>
+          <label>Terminsfrekvens</label>
+          <md-select name="interval" ng-model="loanDetails.interval" ng-model-options="{trackBy: '$value'}" required>
+            <md-option ng-value="1">Årlig termin</md-option>
+            <md-option ng-value="2">Halvårlig termin</md-option>
+            <md-option ng-value="4">Kvartalsvis termin</md-option>
+            <md-option ng-value="12">Månedlig termin</md-option>
+            <md-option ng-value="365">Daglig termin</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container>
+          <label for="costs">Finansieringsomkostninger</label>
+          <input type="number" id="costs" ng-model="financeOptions.costs">
+        </md-input-container>
+        <md-input-container>
+          <label for="bnpl">Betalingsfri periode i terminer</label>
+          <input type="number" id="bnpl" ng-model="financeOptions.periods[0].periods">
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container>
+          <label for="interest">Pålydende rente</label>
+          <input type="number" id="interest" ng-model="financeOptions.periods[selectedPeriod].interest" step="0.01">
+        </md-input-container>
+        <md-input-container>
+          <label for="fee">Terminsgebyr</label>
+          <input type="number" id="fee" ng-model="financeOptions.periods[selectedPeriod].fee">
+        </md-input-container>
+      </div>
+      <md-input-container class="md-input-has-value" layout="column">
+        <label>Beregningsvalg</label>
+        <md-checkbox ng-model="financeOptions.includeCost" aria-label="Vælg medregning af etableringsomkostninger, hvis disse ikke betales ved første ydelse">
+          Etableringsomkostninger finansieres sammen med lånet
+        </md-checkbox>
+        <md-checkbox ng-model="financeOptions.periods[selectedPeriod].usePayment" aria-label="Vælg medregning af etableringsomkostninger, hvis disse ikke betales ved første ydelse">
+          Ydelsen er fast - beregn løbetid
+        </md-checkbox>
+        <md-checkbox ng-model="financeOptions.roundedPayment" aria-label="Vælg medregning af etableringsomkostninger, hvis disse ikke betales ved første ydelse">
+          Afrund ydelsen til hele kroner
+        </md-checkbox>
+      </md-input-container>
+      <md-button ng-click="recalc()" class="md-primary md-raised" flex="50">Beregn</md-button>
+    </div>
+  </md-content>
+</div>
+<div style="padding: 20px; float: left;">
+  <h3>Finansielle nøgletal:</h3>
+  <table cellpadding='5'>
+    <thead><td></td><td></td></thead>
+    <tbody>
+    <tr>
+      <td>Nominel eller pålydende rente</td><td style='text-align: end'>{{ financeOptions.periods[selectedPeriod].interest | number:2 }}%</td>
+    </tr>
+    <tr>
+      <td>Effektiv, årlig nominel (ÅNR) eller debitor rente</td><td style='text-align: end'>{{ eir * 100 | number:2 }}%</td>
+    </tr>
+    <tr>
+      <td>Lånets løbetid</td>
+      <td style='text-align: end'>
+        <span ng-if="loanDetails.interval === 1">{{ plan.duration | number:0 }} år</span>
+        <span ng-if="loanDetails.interval === 2">{{ plan.duration * 6 | number:0 }} måneder</span>
+        <span ng-if="loanDetails.interval === 4">{{ plan.duration * 3 | number:0 }} måneder</span>
+        <span ng-if="loanDetails.interval === 12">{{ plan.duration | number:0 }} måneder</span>
+        <span ng-if="loanDetails.interval === 365">{{ plan.duration | number:0 }} dage</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Nutidsværdi for samlede omkostninger</td><td style='text-align: end'>{{ npv | number:0 }}</td>
+    </tr>
+    <tr>
+      <td>Omkostninger i procent per termin (IRR)</td><td style='text-align: end'>{{ irr * 100 | number:2 }}%</td>
+    </tr>
+    <tr>
+      <td>Årlige omkostninger i procent (ÅOP)</td><td style='text-align: end'>{{ aop * 100 | number:2 }}%</td>
+    </tr>
+    <tr>
+      <td>Samlede tilskrevne renter</td><td style='text-align: end'>{{ plan.totalinterest | number:0 }}</td>
+    </tr>
+    <tr>
+      <td>Samlede omkostninger uden betalte renter</td><td style='text-align: end'>{{ (plan.totalpayed-loanDetails.principal-plan.totalinterest) | number:0 }}</td>
+    </tr>
+    <tr>
+      <td>Samlet tilbagebetalt beløb</td><td style='text-align: end'>{{ plan.totalpayed | number:0 }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Betalingsplan:</h3>
+  <table cellpadding='5'>
+    <thead>
+    <td width="80px" style='text-align: end'>Termin</td>
+    <td width="80px" style='text-align: end'>Ydelse</td>
+    <td width="80px" style='text-align: end'>Afdrag</td>
+    <td width="80px" style='text-align: end'>Rente</td>
+    <td width="80px" style='text-align: end'>Omkostning</td>
+    <td width="100px" style='text-align: end'>Restgæld</td>
+    </thead>
+    <tbody>
+    <tr>
+      <td style='text-align: end'>Start</td><td></td><td></td><td></td><td></td><td style='text-align: end'>{{ plan.principal | number:2 }}</td>
+    </tr>
+    <tr ng-repeat="p in plan.paymentplan">
+      <td style='text-align: end'>{{ p.i }}</td>
+      <td style='text-align: end'>{{ p.payment | number:2 }}</td>
+      <td style='text-align: end'>{{ p.repayed | number:2 }}</td>
+      <td style='text-align: end'>{{ p.interest | number:2 }}</td>
+      <td style='text-align: end'>{{ p.fee | number:2 }}</td>
+      <td style='text-align: end'>{{ p.balance | number:2 }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
