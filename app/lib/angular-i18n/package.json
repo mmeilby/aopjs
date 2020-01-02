@@ -1,0 +1,64 @@
+{
+  "_from": "angular-i18n",
+  "_id": "angular-i18n@1.7.9",
+  "_inBundle": false,
+  "_integrity": "sha512-5woHq1BC0r9KOAoEoCeYt6IKfpLXhxzOwkI/wvukuDHuGGyPU0tapZSdUXihFmQz1nHeiNpspVbkYWsM586p0Q==",
+  "_location": "/angular-i18n",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angular-i18n",
+    "name": "angular-i18n",
+    "escapedName": "angular-i18n",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-i18n/-/angular-i18n-1.7.9.tgz",
+  "_shasum": "3ecdfd6ef1cb1c5eec4658d64a2fdb402e1d2578",
+  "_spec": "angular-i18n",
+  "_where": "/Users/mm/Documents/NativeScriptProjekter/aopjs",
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "AngularJS module for internationalization",
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-i18n": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "internationalization",
+    "i18n",
+    "client-side"
+  ],
+  "license": "MIT",
+  "name": "angular-i18n",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.7.9"
+}
