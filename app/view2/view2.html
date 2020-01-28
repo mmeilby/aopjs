@@ -65,6 +65,21 @@
 </div>
 <div style="padding: 20px; float: left;">
   <h3>Finansielle nøgletal:</h3>
+  <small>
+    Saml. kreditbeløb kr.: {{ plan.principal | number:0 }};
+    Mdl. Ydel. kr.: {{ plan.totalpayed / (plan.duration-financeOptions.periods[0].periods) | number:0 }};
+    <span ng-if="loanDetails.interval === 1">Løbetid {{ plan.duration * 12 | number:0 }} mdr;</span>
+    <span ng-if="loanDetails.interval === 2">Løbetid {{ plan.duration * 6 | number:0 }} mdr;</span>
+    <span ng-if="loanDetails.interval === 4">Løbetid {{ plan.duration * 3 | number:0 }} mdr;</span>
+    <span ng-if="loanDetails.interval === 12">Løbetid {{ plan.duration | number:0 }} mdr;</span>
+    <span ng-if="loanDetails.interval === 365">Løbetid {{ plan.duration | number:0 }} dage;</span>
+    Var. Deb.rente {{ eir * 100 | number:2 }} %;
+    ÅOP {{ aop * 100 | number:2 }} %;<br/>
+    Saml. kreditomk. kr. {{ (plan.totalpayed-loanDetails.principal) | number:0 }};
+    Saml. tilbagebet. kr. {{ plan.totalpayed | number:0 }};
+    Etabl.omk. samt mdl. gebyr er medtaget i beregningen.<br/>
+    Skal bet. via BS. Fortrydelsesret 14 dage. Finansiering via Santander Consumer Bank.
+  </small>
   <table cellpadding='5'>
     <thead><td></td><td></td></thead>
     <tbody>
