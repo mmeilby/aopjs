@@ -1,38 +1,50 @@
-# `angular-seed` — the seed for AngularJS apps
+# `ÅOP calculator` — a multi purpose ÅOP calculator
 
-This project is an application skeleton for a typical [AngularJS][angularjs] web app. You can use it
-to quickly bootstrap your angular webapp projects and dev environment for these projects.
+This project is an multi purpose ÅOP calculator developed to set a reference for testing
+loan application flows at Santander Consumer Bank.
 
-The seed contains a sample AngularJS application and is preconfigured to install the AngularJS
-framework and a bunch of development and testing tools for instant web development gratification.
+The calculator has been verified against many live scenarios but no warranty for correctness is given.
+Use of the calculator results will be at own risk.
 
-The seed app doesn't do much, just shows how to wire two controllers and views together.
+In general terms ÅOP is equivalent to IRR - internal rate of return.
+ÅOP is the rate at which the net present value of a cashflow (payments including all costs) becomes zero.
+The rate is ‘internal’ because it does not take any external factor (like inflation) into consideration.
 
+In this project all calculation functions are placed in the file calc.js.
+If you are looking for inspiration how to calculate ÅOP you should just focus on this file, as all the rest of
+this project are files needed for supporting the aopjs test calculator on the web.
+
+Either way feel free to comment on the project or even suggest changes or improvements.
+
+Enjoy,  
+Morten Meilby  
+Product Owner, Shared Services  
+Santander Consumer Bank
 
 ## Getting Started
 
-To get you started you can simply clone the `angular-seed` repository and install the dependencies:
+To get you started you can simply clone the `aopjs` repository and install the dependencies:
 
 ### Prerequisites
 
-You need git to clone the `angular-seed` repository. You can get git from [here][git].
+You need git to clone the `aopjs` repository. You can get git from [here][git].
 
-We also use a number of Node.js tools to initialize and test `angular-seed`. You must have Node.js
+We also use a number of Node.js tools to initialize and test `aopjs`. You must have Node.js
 and its package manager (npm) installed. You can get them from [here][node].
 
-### Clone `angular-seed`
+### Clone `aopjs`
 
-Clone the `angular-seed` repository using git:
-
-```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
-```
-
-If you just want to start a new project without the `angular-seed` commit history then you can do:
+Clone the `aopjs` repository using git:
 
 ```
-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>
+git clone https://github.com/mmeilby/aopjs.git
+cd aopjs
+```
+
+If you just want to start a new project without the `aopjs` commit history then you can do:
+
+```
+git clone --depth=1 https://github.com/mmeilby/aopjs.git <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
@@ -73,7 +85,7 @@ this server is:
 npm start
 ```
 
-Now browse to the app at [`localhost:8000/index.html`][local-app-url].
+Now browse to the app at [`localhost:8000/aopjs/app`][local-app-url].
 
 
 ## Directory Layout
@@ -82,6 +94,8 @@ Now browse to the app at [`localhost:8000/index.html`][local-app-url].
 app/                  --> all of the source files for the application
   app.css               --> default stylesheet
   core/                 --> all app specific modules
+    calc/                 --> all calculations used in the project
+      calc.js                    --> the library of calculation functions
     version/              --> version related components
       version.js                 --> version module declaration and basic "version" value service
       version_test.js            --> "version" value service tests
@@ -89,11 +103,11 @@ app/                  --> all of the source files for the application
       version-directive_test.js  --> version directive tests
       interpolate-filter.js      --> custom interpolation filter
       interpolate-filter_test.js --> interpolate filter tests
-  view1/                --> the view1 view template and logic
+  view1/                --> the annuity loan calculation view template and logic
     view1.html            --> the partial template
     view1.js              --> the controller logic
     view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
+  view2/                --> the BNPL (buy now pay later) loan calculkation view template and logic
     view2.html            --> the partial template
     view2.js              --> the controller logic
     view2_test.js         --> tests of the controller
@@ -111,11 +125,11 @@ package-lock.json     --> Npm specific metadata, including versions of installed
 
 ## Testing
 
-There are two kinds of tests in the `angular-seed` application: Unit tests and end-to-end tests.
+There are two kinds of tests in the `aopjs` application: Unit tests and end-to-end tests.
 
 ### Running Unit Tests
 
-The `angular-seed` app comes preconfigured with unit tests. These are written in [Jasmine][jasmine],
+The `aopjs` app comes preconfigured with unit tests. These are written in [Jasmine][jasmine],
 which we run with the [Karma][karma] test runner. We provide a Karma configuration file to run them.
 
 * The configuration is found at `karma.conf.js`.
@@ -146,7 +160,7 @@ npm run test-single-run
 <a name="e2e-testing"></a>
 ### Running End-to-End Tests
 
-The `angular-seed` app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
+The `aopjs` app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
 are run with the [Protractor][protractor] End-to-End test runner. It uses native events and has
 special features for AngularJS applications.
 
@@ -164,7 +178,7 @@ npm start
 ```
 
 In addition, since Protractor is built upon WebDriver, we need to ensure that it is installed and
-up-to-date. The `angular-seed` project is configured to do this automatically before running the
+up-to-date. The `aopjs` project is configured to do this automatically before running the
 end-to-end tests, so you don't need to worry about it. If you want to manually update the WebDriver,
 you can run:
 
@@ -208,7 +222,7 @@ you can change the version range in `package.json` and then run `npm run update-
 
 ## Loading AngularJS Asynchronously
 
-The `angular-seed` project supports loading the framework and application scripts asynchronously.
+The `aopjs` project supports loading the framework and application scripts asynchronously.
 The special `index-async.html` is designed to support this style of loading. For it to work you must
 inject a piece of AngularJS JavaScript into the HTML page. The project has a predefined script to help
 do this:
@@ -231,7 +245,7 @@ etc to function properly when an HTML page is opened via the `file://` scheme in
 
 ### Running the App during Development
 
-The `angular-seed` project comes preconfigured with a local development web server. It is a Node.js
+The `aopjs` project comes preconfigured with a local development web server. It is a Node.js
 tool called [http-server][http-server]. You can start this web server with `npm start`, but you may
 choose to install the tool globally:
 
@@ -268,7 +282,7 @@ reverse-proxying the backend server(s) and web server(s).
 ### Travis CI
 
 [Travis CI][travis] is a continuous integration service, which can monitor GitHub for new commits to
-your repository and execute scripts such as building the app or running tests. The `angular-seed`
+your repository and execute scripts such as building the app or running tests. The `aopjs`
 project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
 tests when you push to GitHub.
 
