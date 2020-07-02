@@ -96,7 +96,7 @@ function IRR(cashflow, initialguess) {
   // Set maximum epsilon for end of iteration
   const epsMax = 1e-10;
   // Set maximum number of iterations
-  const iterMax = 50;
+  const iterMax = 100;
   // Check that money flow contains at least one positive value (payment) and one negative value (loan)
   if (cashflow.some((CFn) => CFn > 0) && cashflow.some((CFn) => CFn < 0)) {
     let irr = (typeof initialguess === "undefined") ? 0.1 : initialguess
