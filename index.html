@@ -42,28 +42,21 @@
         Santander Consumer Bank</p>
     <h5 class="bd-callout bd-callout-info">You can try out the application here: <a href="app/">The ÅOP application live</a></h5>
     <h2>Getting Started</h2>
-    <p>To get you started you can simply clone the <code>aopjs</code> repository
-        and install the dependencies:</p>
+    <p>To get you started you can simply clone the <code>aopjs</code> repository and install the dependencies:</p>
     <h3>Prerequisites</h3>
-    <p>You need git to clone the <code>aopjs</code> repository. You can get git
-        from <a href="https://git-scm.com/" rel="nofollow">here</a>.</p>
-    <p>We also use a number of Node.js tools to initialize and test
-        <code>aopjs</code>. You must have Node.js
-        and its package manager (npm) installed. You can get them from <a href="https://nodejs.org/"
-                                                                          rel="nofollow">here</a>.</p>
+    <p>You need git to clone the <code>aopjs</code> repository. You can get git from <a href="https://git-scm.com/" rel="nofollow">here</a>.</p>
+    <p>We also use a number of Node.js tools to initialize and test <code>aopjs</code>. You must have Node.js
+        and its package manager (npm) installed. You can get them from <a href="https://nodejs.org/" rel="nofollow">here</a>.</p>
     <h3>Clone <code>aopjs</code></h3>
     <p>Clone the <code>aopjs</code> repository using git:</p>
     <pre class="alert alert-dark" role="alert"><code>git clone https://github.com/mmeilby/aopjs.git
 cd aopjs</code></pre>
-    <p>If you just want to start a new project without the <code>aopjs</code>
-        commit history then you can do:</p>
+    <p>If you just want to start a new project without the <code>aopjs</code> commit history then you can do:</p>
     <pre class="alert alert-dark" role="alert"><code>git clone --depth=1 https://github.com/mmeilby/aopjs.git &lt;your-project-name&gt;</code></pre>
-    <p>The <code>depth=1</code> tells git to only pull down one commit worth of
-        historical data.</p>
+    <p>The <code>depth=1</code> tells git to only pull down one commit worth of historical data.</p>
     <h3>Install Dependencies</h3>
     <p>We have two kinds of dependencies in this project: tools and AngularJS
-        framework code. The tools
-        help us manage and test the application.</p>
+        framework code. The tools help us manage and test the application.</p>
     <ul>
         <li>We get the tools we depend upon and the AngularJS code via <code>npm</code>, the <a
                 href="https://www.npmjs.org/" rel="nofollow">Node package manager</a>.
@@ -76,8 +69,7 @@ cd aopjs</code></pre>
     <p>We have preconfigured <code>npm</code> to automatically copy the downloaded
         AngularJS files to <code>app/lib</code> so we can simply do:</p>
     <pre class="alert alert-dark" role="alert"><code>npm install</code></pre>
-    <p>Behind the scenes this will also call <code>npm run copy-libs</code>, which
-        copies the AngularJS files and
+    <p>Behind the scenes this will also call <code>npm run copy-libs</code>, which copies the AngularJS files and
         other front end dependencies. After that, you should find out that you have two new directories in
         your project.</p>
     <ul>
@@ -89,12 +81,10 @@ cd aopjs</code></pre>
         </li>
     </ul>
     <p><em>Note copying the AngularJS files from <code>node_modules</code> to
-        <code>app/lib</code> makes it easier to serve the
-        files by a web server.</em></p>
+        <code>app/lib</code> makes it easier to serve the files by a web server.</em></p>
     <h3>Run the Application</h3>
     <p>We have preconfigured the project with a simple development web server. The
-        simplest way to start
-        this server is:</p>
+        simplest way to start this server is:</p>
     <pre class="alert alert-dark" role="alert"><code>npm start</code></pre>
     <p>Now browse to the app at <a href="http://localhost:8000/index.html"
                                    rel="nofollow"><code>localhost:8000/aopjs/app</code></a>.
@@ -130,8 +120,7 @@ karma.conf.js                       --&gt; config file for running unit tests wi
 package.json                        --&gt; Node.js specific metadata, including development tools dependencies
 package-lock.json                   --&gt; Npm specific metadata, including versions of installed development tools dependencies</code></pre>
     <h2>Testing</h2>
-    <p>There are two kinds of tests in the <code>aopjs</code> application: Unit
-        tests and end-to-end tests.</p>
+    <p>There are two kinds of tests in the <code>aopjs</code> application: Unit tests and end-to-end tests.</p>
     <h3>Running Unit Tests</h3>
     <p>The <code>aopjs</code> app comes preconfigured with unit tests. These are
         written in <a href="https://jasmine.github.io/" rel="nofollow">Jasmine</a>,
@@ -144,8 +133,7 @@ package-lock.json                   --&gt; Npm specific metadata, including vers
             <code>view1.spec.js</code>).
         </li>
     </ul>
-    <p>The easiest way to run the unit tests is to use the supplied npm
-        script:</p>
+    <p>The easiest way to run the unit tests is to use the supplied npm script:</p>
     <pre class="alert alert-dark" role="alert"><code>npm test</code></pre>
     <p>This script will start the Karma test runner to execute the unit tests.
         Moreover, Karma will start
@@ -168,86 +156,65 @@ package-lock.json                   --&gt; Npm specific metadata, including vers
         <li>The configuration is found at <code>e2e-tests/protractor-conf.js</code>.</li>
         <li>The end-to-end tests are found in <code>e2e-tests/scenarios.js</code>.</li>
     </ul>
-    <p>Protractor simulates interaction with our web app and verifies that the
-        application responds
+    <p>Protractor simulates interaction with our web app and verifies that the application responds
         correctly. Therefore, our web server needs to be serving up the application, so that Protractor can
         interact with it.</p>
     <p><strong>Before starting Protractor, open a separate terminal window and run:</strong></p>
     <pre class="alert alert-dark" role="alert"><code>npm start</code></pre>
-    <p>In addition, since Protractor is built upon WebDriver, we need to ensure
-        that it is installed and
+    <p>In addition, since Protractor is built upon WebDriver, we need to ensure that it is installed and
         up-to-date. The <code>aopjs</code> project is configured to do this automatically before running the
         end-to-end tests, so you don't need to worry about it. If you want to manually update the WebDriver,
         you can run:</p>
     <pre class="alert alert-dark" role="alert"><code>npm run update-webdriver</code></pre>
-    <p>Once you have ensured that the development web server hosting our
-        application is up and running, you
+    <p>Once you have ensured that the development web server hosting our application is up and running, you
         can run the end-to-end tests using the supplied npm script:</p>
     <pre class="alert alert-dark" role="alert"><code>npm run protractor</code></pre>
-    <p>This script will execute the end-to-end tests against the application being
-        hosted on the
-        development server.</p>
+    <p>This script will execute the end-to-end tests against the application being hosted on the development server.</p>
     <p><strong>Note:</strong>
         Under the hood, Protractor uses the <a href="http://docs.seleniumhq.org/" rel="nofollow">Selenium Standalone
             Server</a>, which in turn requires
         the <a href="https://wikipedia.org/wiki/Java_Development_Kit" rel="nofollow">Java Development Kit (JDK)</a> to
-        be installed on your local machine. Check this by running
-        <code>java -version</code> from the command line.</p>
+        be installed on your local machine. Check this by running <code>java -version</code> from the command line.</p>
     <p>If JDK is not already installed, you can download it <a
             href="http://www.oracle.com/technetwork/java/javase/downloads" rel="nofollow">here</a>.</p>
     <h2>Updating AngularJS and other dependencies</h2>
-    <p>Since the AngularJS framework library code and tools are acquired through
-        package managers (e.g.
+    <p>Since the AngularJS framework library code and tools are acquired through package managers (e.g.
         npm) you can use these tools to easily update the dependencies. Simply run the preconfigured script:</p>
     <pre class="alert alert-dark" role="alert"><code>npm run update-deps</code></pre>
-    <p>This will call <code>npm update</code> and <code>npm run copy-libs</code>,
-        which in turn will find and install the latest
+    <p>This will call <code>npm update</code> and <code>npm run copy-libs</code>, which in turn will find and install the latest
         versions that match the version ranges specified in the <code>package.json</code> file.</p>
-    <p>If you want to update a dependency to a version newer than what the
-        specificed range would permit,
-        you can change the version range in <code>package.json</code> and then run <code>npm run update-deps</code> as
-        usual.</p>
+    <p>If you want to update a dependency to a version newer than what the specificed range would permit,
+        you can change the version range in <code>package.json</code> and then run <code>npm run update-deps</code> as usual.</p>
     <h2>Loading AngularJS Asynchronously</h2>
-    <p>The <code>aopjs</code> project supports loading the framework and
-        application scripts asynchronously.
+    <p>The <code>aopjs</code> project supports loading the framework and application scripts asynchronously.
         The special <code>index-async.html</code> is designed to support this style of loading. For it to work you must
-        inject a piece of AngularJS JavaScript into the HTML page. The project has a predefined script to help
-        do this:</p>
+        inject a piece of AngularJS JavaScript into the HTML page. The project has a predefined script to help do this:</p>
     <pre class="alert alert-dark" role="alert"><code>npm run update-index-async</code></pre>
-    <p>This will copy the contents of the <code>angular-loader.js</code> library
-        file into the <code>index-async.html</code>
+    <p>This will copy the contents of the <code>angular-loader.js</code> library file into the <code>index-async.html</code>
         page. You can run this every time you update the version of AngularJS that you are using.</p>
     <h2>Serving the Application Files</h2>
-    <p>While AngularJS is client-side-only technology and it is possible to create
-        AngularJS web apps that
+    <p>While AngularJS is client-side-only technology and it is possible to create AngularJS web apps that
         do not require a backend server at all, we recommend serving the project files using a local
         web server during development to avoid issues with security restrictions (sandbox) in browsers. The
         sandbox implementation varies between browsers, but quite often prevents things like cookies, XHR,
         etc to function properly when an HTML page is opened via the <code>file://</code> scheme instead of <code>http://</code>.
     </p>
     <h3>Running the App during Development</h3>
-    <p>The <code>aopjs</code> project comes preconfigured with a local development
-        web server. It is a Node.js
+    <p>The <code>aopjs</code> project comes preconfigured with a local development web server. It is a Node.js
         tool called <a href="https://github.com/indexzero/http-server">http-server</a>. You can start this web server
-        with <code>npm start</code>, but you may
-        choose to install the tool globally:</p>
+        with <code>npm start</code>, but you may choose to install the tool globally:</p>
     <pre class="alert alert-dark" role="alert"><code>sudo npm install -g http-server</code></pre>
-    <p>Then you can start your own development web server to serve static files
-        from any folder by running:</p>
+    <p>Then you can start your own development web server to serve static files from any folder by running:</p>
     <pre class="alert alert-dark" role="alert"><code>http-server -a localhost -p 8000</code></pre>
     <p>Alternatively, you can choose to configure your own web server, such as
-        Apache or Nginx. Just
-        configure your server to serve the files under the <code>app/</code> directory.</p>
+        Apache or Nginx. Just configure your server to serve the files under the <code>app/</code> directory.</p>
     <h3>Running the App in Production</h3>
-    <p>This really depends on how complex your app is and the overall
-        infrastructure of your system, but
+    <p>This really depends on how complex your app is and the overall infrastructure of your system, but
         the general rule is that all you need in production are the files under the <code>app/</code> directory.
         Everything else should be omitted.</p>
-    <p>AngularJS apps are really just a bunch of static HTML, CSS and JavaScript
-        files that need to be
+    <p>AngularJS apps are really just a bunch of static HTML, CSS and JavaScript files that need to be
         hosted somewhere they can be accessed by browsers.</p>
-    <p>If your AngularJS app is talking to the backend server via XHR or other
-        means, you need to figure
+    <p>If your AngularJS app is talking to the backend server via XHR or other means, you need to figure
         out what is the best way to host the static files to comply with the same origin policy if
         applicable. Usually this is done by hosting the files by the backend server or through
         reverse-proxying the backend server(s) and web server(s).</p>
