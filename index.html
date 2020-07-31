@@ -3,433 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <title>ÅOP calculator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
 </head>
 <body>
-<div class="expandable unchanged js-expandable rich-diff-level-zero" style="margin: 20px">
-    <h1 class="unchanged rich-diff-level-one">
-        <a id="user-content-åop-calculator--a-multi-purpose-åop-calculator" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#%C3%A5op-calculator--a-multi-purpose-%C3%A5op-calculator">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a><code>ÅOP calculator</code> — a multi purpose ÅOP calculator
-    </h1>
-    <p class="unchanged rich-diff-level-one">This project is an multi purpose ÅOP calculator developed to set a
+<style>
+    .bd-callout {
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid #eee;
+        border-left-width: 10px;
+        border-radius: .25rem;
+    }
+    .bd-callout-info {
+        border-left-color: #5bc0de;
+    }
+</style>
+<div class="container">
+    <p></p>
+    <h1><code>ÅOP calculator</code> — a multi purpose ÅOP calculator</h1>
+    <p>This project is an multi purpose ÅOP calculator developed to set a
         reference for testing
         loan application flows at Santander Consumer Bank.</p>
-    <p class="unchanged rich-diff-level-one">The calculator has been verified against many live scenarios but no
+    <p>The calculator has been verified against many live scenarios but no
         warranty for correctness is given.
         Use of the calculator results will be at own risk.</p>
-    <p class="unchanged rich-diff-level-one">In general terms ÅOP is equivalent to IRR - internal rate of return.
+    <p>In general terms ÅOP is equivalent to IRR - internal rate of return.
         ÅOP is the rate at which the net present value of a cashflow (payments including all costs) becomes zero.
         The rate is ‘internal’ because it does not take any external factor (like inflation) into consideration.</p>
-    <p class="unchanged rich-diff-level-one">In this project all calculation functions are placed in the file calc.js.
+    <p>In this project all calculation functions are placed in the file calc.js.
         If you are looking for inspiration how to calculate ÅOP you should just focus on this file, as all the rest of
         this project are files needed for supporting the aopjs test calculator on the web.</p>
-    <p class="unchanged rich-diff-level-one">Either way feel free to comment on the project or even suggest changes or
-        improvements.</p>
-    <p>You can run the application from this link: <a href="app/">ÅOP application</a></p>
-    <p class="unchanged rich-diff-level-one">Enjoy,<br>
+    <p>Either way feel free to comment on the project or even suggest changes or improvements.</p>
+    <p>Enjoy,<br>
         Morten Meilby<br>
         Product Owner, Shared Services<br>
         Santander Consumer Bank</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-getting-started" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#getting-started">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Getting Started
-    </h2>
-    <p class="unchanged rich-diff-level-one">To get you started you can simply clone the <code>aopjs</code> repository
+    <h5 class="bd-callout bd-callout-info">You can try out the application here: <a href="app/">The ÅOP application live</a></h5>
+    <h2>Getting Started</h2>
+    <p>To get you started you can simply clone the <code>aopjs</code> repository
         and install the dependencies:</p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-prerequisites" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#prerequisites">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Prerequisites
-    </h3>
-    <p class="unchanged rich-diff-level-one">You need git to clone the <code>aopjs</code> repository. You can get git
+    <h3>Prerequisites</h3>
+    <p>You need git to clone the <code>aopjs</code> repository. You can get git
         from <a href="https://git-scm.com/" rel="nofollow">here</a>.</p>
-    <p class="unchanged rich-diff-level-one">We also use a number of Node.js tools to initialize and test
+    <p>We also use a number of Node.js tools to initialize and test
         <code>aopjs</code>. You must have Node.js
         and its package manager (npm) installed. You can get them from <a href="https://nodejs.org/"
                                                                           rel="nofollow">here</a>.</p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-clone-aopjs" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#clone-aopjs">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Clone <code>aopjs</code>
-    </h3>
-    <p class="unchanged rich-diff-level-one">Clone the <code>aopjs</code> repository using git:</p>
-    <pre class="unchanged rich-diff-level-one"><code>git clone https://github.com/mmeilby/aopjs.git
-cd aopjs
-</code></pre>
-    <p class="unchanged rich-diff-level-one">If you just want to start a new project without the <code>aopjs</code>
+    <h3>Clone <code>aopjs</code></h3>
+    <p>Clone the <code>aopjs</code> repository using git:</p>
+    <pre class="alert alert-dark" role="alert"><code>git clone https://github.com/mmeilby/aopjs.git
+cd aopjs</code></pre>
+    <p>If you just want to start a new project without the <code>aopjs</code>
         commit history then you can do:</p>
-    <pre class="unchanged rich-diff-level-one"><code>git clone --depth=1 https://github.com/mmeilby/aopjs.git &lt;your-project-name&gt;
-</code></pre>
-    <p class="unchanged rich-diff-level-one">The <code>depth=1</code> tells git to only pull down one commit worth of
+    <pre class="alert alert-dark" role="alert"><code>git clone --depth=1 https://github.com/mmeilby/aopjs.git &lt;your-project-name&gt;</code></pre>
+    <p>The <code>depth=1</code> tells git to only pull down one commit worth of
         historical data.</p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-install-dependencies" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#install-dependencies">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Install Dependencies
-    </h3>
-    <p class="unchanged rich-diff-level-one">We have two kinds of dependencies in this project: tools and AngularJS
+    <h3>Install Dependencies</h3>
+    <p>We have two kinds of dependencies in this project: tools and AngularJS
         framework code. The tools
         help us manage and test the application.</p>
-    <ul class="unchanged rich-diff-level-one">
-        <li class="unchanged">We get the tools we depend upon and the AngularJS code via <code>npm</code>, the <a
+    <ul>
+        <li>We get the tools we depend upon and the AngularJS code via <code>npm</code>, the <a
                 href="https://www.npmjs.org/" rel="nofollow">Node package manager</a>.
         </li>
-        <li class="unchanged">In order to run the end-to-end tests, you will also need to have the
+        <li>In order to run the end-to-end tests, you will also need to have the
             <a href="https://wikipedia.org/wiki/Java_Development_Kit" rel="nofollow">Java Development Kit (JDK)</a>
-            installed on your machine. Check out the section on
-            <a href="/mmeilby/aopjs/blob/master/README.md#e2e-testing">end-to-end testing</a> for more info.
+            installed on your machine. Check out the section on end-to-end testing for more info.
         </li>
     </ul>
-    <p class="unchanged rich-diff-level-one">We have preconfigured <code>npm</code> to automatically copy the downloaded
-        AngularJS files to <code>app/lib</code> so we
-        can simply do:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm install
-</code></pre>
-    <p class="unchanged rich-diff-level-one">Behind the scenes this will also call <code>npm run copy-libs</code>, which
+    <p>We have preconfigured <code>npm</code> to automatically copy the downloaded
+        AngularJS files to <code>app/lib</code> so we can simply do:</p>
+    <pre class="alert alert-dark" role="alert"><code>npm install</code></pre>
+    <p>Behind the scenes this will also call <code>npm run copy-libs</code>, which
         copies the AngularJS files and
         other front end dependencies. After that, you should find out that you have two new directories in
         your project.</p>
-    <ul class="unchanged rich-diff-level-one">
-        <li class="unchanged">
+    <ul>
+        <li>
             <code>node_modules</code> - contains the npm packages for the tools we need
         </li>
-        <li class="unchanged">
+        <li>
             <code>app/lib</code> - contains the AngularJS framework files and other front end dependencies
         </li>
     </ul>
-    <p class="unchanged rich-diff-level-one"><em>Note copying the AngularJS files from <code>node_modules</code> to
+    <p><em>Note copying the AngularJS files from <code>node_modules</code> to
         <code>app/lib</code> makes it easier to serve the
         files by a web server.</em></p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-run-the-application" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#run-the-application">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Run the Application
-    </h3>
-    <p class="unchanged rich-diff-level-one">We have preconfigured the project with a simple development web server. The
+    <h3>Run the Application</h3>
+    <p>We have preconfigured the project with a simple development web server. The
         simplest way to start
         this server is:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm start
-</code></pre>
-    <p class="unchanged rich-diff-level-one">Now browse to the app at <a href="http://localhost:8000/index.html"
-                                                                         rel="nofollow"><code>localhost:8000/aopjs/app</code></a>.
+    <pre class="alert alert-dark" role="alert"><code>npm start</code></pre>
+    <p>Now browse to the app at <a href="http://localhost:8000/index.html"
+                                   rel="nofollow"><code>localhost:8000/aopjs/app</code></a>.
     </p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-directory-layout" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#directory-layout">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Directory Layout
-    </h2>
-    <pre class="unchanged rich-diff-level-one"><code>app/                  --&gt; all of the source files for the application
-  app.css               --&gt; default stylesheet
-  core/                 --&gt; all app specific modules
-    calc/                 --&gt; all calculations used in the project
-      calc.js                    --&gt; the library of calculation functions
-    version/              --&gt; version related components
-      version.js                 --&gt; version module declaration and basic "version" value service
-      version_test.js            --&gt; "version" value service tests
-      version-directive.js       --&gt; custom directive that returns the current app version
-      version-directive_test.js  --&gt; version directive tests
-      interpolate-filter.js      --&gt; custom interpolation filter
-      interpolate-filter_test.js --&gt; interpolate filter tests
-  view1/                --&gt; the annuity loan calculation view template and logic
-    view1.html            --&gt; the partial template
-    view1.js              --&gt; the controller logic
-    view1_test.js         --&gt; tests of the controller
-  view2/                --&gt; the BNPL (buy now pay later) loan calculkation view template and logic
-    view2.html            --&gt; the partial template
-    view2.js              --&gt; the controller logic
-    view2_test.js         --&gt; tests of the controller
-  app.js                --&gt; main application module
-  index.html            --&gt; app layout file (the main html template file of the app)
-  index-async.html      --&gt; just like index.html, but loads js files asynchronously
-e2e-tests/            --&gt; end-to-end tests
-  protractor-conf.js    --&gt; Protractor config file
-  scenarios.js          --&gt; end-to-end scenarios to be run by Protractor
-karma.conf.js         --&gt; config file for running unit tests with Karma
-package.json          --&gt; Node.js specific metadata, including development tools dependencies
-package-lock.json     --&gt; Npm specific metadata, including versions of installed development tools dependencies
-</code></pre>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-testing" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#testing">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Testing
-    </h2>
-    <p class="unchanged rich-diff-level-one">There are two kinds of tests in the <code>aopjs</code> application: Unit
+    <h2>Directory Layout</h2>
+    <pre><code>app/                                --&gt; all of the source files for the application
+  app.css                           --&gt; default stylesheet
+  core/                             --&gt; all app specific modules
+    calc/                           --&gt; all calculations used in the project
+      calc.js                       --&gt; the library of calculation functions
+    version/                        --&gt; version related components
+      version.js                    --&gt; version module declaration and basic "version" value service
+      version_test.js               --&gt; "version" value service tests
+      version-directive.js          --&gt; custom directive that returns the current app version
+      version-directive_test.js     --&gt; version directive tests
+      interpolate-filter.js         --&gt; custom interpolation filter
+      interpolate-filter_test.js    --&gt; interpolate filter tests
+  view1/                            --&gt; the annuity loan calculation view template and logic
+    view1.html                      --&gt; the partial template
+    view1.js                        --&gt; the controller logic
+    view1_test.js                   --&gt; tests of the controller
+  view2/                            --&gt; the BNPL (buy now pay later) loan calculkation view template and logic
+    view2.html                      --&gt; the partial template
+    view2.js                        --&gt; the controller logic
+    view2_test.js                   --&gt; tests of the controller
+  app.js                            --&gt; main application module
+  index.html                        --&gt; app layout file (the main html template file of the app)
+  index-async.html                  --&gt; just like index.html, but loads js files asynchronously
+e2e-tests/                          --&gt; end-to-end tests
+  protractor-conf.js                --&gt; Protractor config file
+  scenarios.js                      --&gt; end-to-end scenarios to be run by Protractor
+karma.conf.js                       --&gt; config file for running unit tests with Karma
+package.json                        --&gt; Node.js specific metadata, including development tools dependencies
+package-lock.json                   --&gt; Npm specific metadata, including versions of installed development tools dependencies</code></pre>
+    <h2>Testing</h2>
+    <p>There are two kinds of tests in the <code>aopjs</code> application: Unit
         tests and end-to-end tests.</p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-running-unit-tests" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#running-unit-tests">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Running Unit Tests
-    </h3>
-    <p class="unchanged rich-diff-level-one">The <code>aopjs</code> app comes preconfigured with unit tests. These are
+    <h3>Running Unit Tests</h3>
+    <p>The <code>aopjs</code> app comes preconfigured with unit tests. These are
         written in <a href="https://jasmine.github.io/" rel="nofollow">Jasmine</a>,
         which we run with the <a href="https://karma-runner.github.io/" rel="nofollow">Karma</a> test runner. We provide
         a Karma configuration file to run them.</p>
-    <ul class="unchanged rich-diff-level-one">
-        <li class="unchanged">The configuration is found at <code>karma.conf.js</code>.</li>
-        <li class="unchanged">The unit tests are found next to the code they are testing and have a
+    <ul>
+        <li>The configuration is found at <code>karma.conf.js</code>.</li>
+        <li>The unit tests are found next to the code they are testing and have a
             <code>.spec.js</code> suffix (e.g.
             <code>view1.spec.js</code>).
         </li>
     </ul>
-    <p class="unchanged rich-diff-level-one">The easiest way to run the unit tests is to use the supplied npm
+    <p>The easiest way to run the unit tests is to use the supplied npm
         script:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm test
-</code></pre>
-    <p class="unchanged rich-diff-level-one">This script will start the Karma test runner to execute the unit tests.
+    <pre class="alert alert-dark" role="alert"><code>npm test</code></pre>
+    <p>This script will start the Karma test runner to execute the unit tests.
         Moreover, Karma will start
         watching the source and test files for changes and then re-run the tests whenever any of them
         changes.
         This is the recommended strategy; if your unit tests are being run every time you save a file then
         you receive instant feedback on any changes that break the expected code functionality.</p>
-    <p class="unchanged rich-diff-level-one">You can also ask Karma to do a single run of the tests and then exit. This
+    <p>You can also ask Karma to do a single run of the tests and then exit. This
         is useful if you want to
         check that a particular version of the code is operating as expected. The project contains a
         predefined script to do this:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm run test-single-run
-</code></pre>
-    <p class="unchanged rich-diff-level-one"><a name="user-content-e2e-testing"></a></p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-running-end-to-end-tests" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#running-end-to-end-tests">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Running End-to-End Tests
-    </h3>
-    <p class="unchanged rich-diff-level-one">The <code>aopjs</code> app comes with end-to-end tests, again written in <a
+    <pre class="alert alert-dark" role="alert"><code>npm run test-single-run</code></pre>
+    <p><a name="user-content-e2e-testing"></a></p>
+    <h3>Running End-to-End Tests</h3>
+    <p>The <code>aopjs</code> app comes with end-to-end tests, again written in <a
             href="https://jasmine.github.io/" rel="nofollow">Jasmine</a>. These tests
         are run with the <a href="http://www.protractortest.org/" rel="nofollow">Protractor</a> End-to-End test runner.
-        It uses native events and has
-        special features for AngularJS applications.</p>
-    <ul class="unchanged rich-diff-level-one">
-        <li class="unchanged">The configuration is found at <code>e2e-tests/protractor-conf.js</code>.</li>
-        <li class="unchanged">The end-to-end tests are found in <code>e2e-tests/scenarios.js</code>.</li>
+        It uses native events and has special features for AngularJS applications.</p>
+    <ul>
+        <li>The configuration is found at <code>e2e-tests/protractor-conf.js</code>.</li>
+        <li>The end-to-end tests are found in <code>e2e-tests/scenarios.js</code>.</li>
     </ul>
-    <p class="unchanged rich-diff-level-one">Protractor simulates interaction with our web app and verifies that the
+    <p>Protractor simulates interaction with our web app and verifies that the
         application responds
         correctly. Therefore, our web server needs to be serving up the application, so that Protractor can
         interact with it.</p>
-    <p class="unchanged rich-diff-level-one"><strong>Before starting Protractor, open a separate terminal window and
-        run:</strong></p>
-    <pre class="unchanged rich-diff-level-one"><code>npm start
-</code></pre>
-    <p class="unchanged rich-diff-level-one">In addition, since Protractor is built upon WebDriver, we need to ensure
+    <p><strong>Before starting Protractor, open a separate terminal window and run:</strong></p>
+    <pre class="alert alert-dark" role="alert"><code>npm start</code></pre>
+    <p>In addition, since Protractor is built upon WebDriver, we need to ensure
         that it is installed and
         up-to-date. The <code>aopjs</code> project is configured to do this automatically before running the
         end-to-end tests, so you don't need to worry about it. If you want to manually update the WebDriver,
         you can run:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm run update-webdriver
-</code></pre>
-    <p class="unchanged rich-diff-level-one">Once you have ensured that the development web server hosting our
+    <pre class="alert alert-dark" role="alert"><code>npm run update-webdriver</code></pre>
+    <p>Once you have ensured that the development web server hosting our
         application is up and running, you
         can run the end-to-end tests using the supplied npm script:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm run protractor
-</code></pre>
-    <p class="unchanged rich-diff-level-one">This script will execute the end-to-end tests against the application being
+    <pre class="alert alert-dark" role="alert"><code>npm run protractor</code></pre>
+    <p>This script will execute the end-to-end tests against the application being
         hosted on the
         development server.</p>
-    <p class="unchanged rich-diff-level-one"><strong>Note:</strong>
+    <p><strong>Note:</strong>
         Under the hood, Protractor uses the <a href="http://docs.seleniumhq.org/" rel="nofollow">Selenium Standalone
             Server</a>, which in turn requires
         the <a href="https://wikipedia.org/wiki/Java_Development_Kit" rel="nofollow">Java Development Kit (JDK)</a> to
         be installed on your local machine. Check this by running
         <code>java -version</code> from the command line.</p>
-    <p class="unchanged rich-diff-level-one">If JDK is not already installed, you can download it <a
+    <p>If JDK is not already installed, you can download it <a
             href="http://www.oracle.com/technetwork/java/javase/downloads" rel="nofollow">here</a>.</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-updating-angularjs-and-other-dependencies" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#updating-angularjs-and-other-dependencies">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Updating AngularJS and other dependencies
-    </h2>
-    <p class="unchanged rich-diff-level-one">Since the AngularJS framework library code and tools are acquired through
+    <h2>Updating AngularJS and other dependencies</h2>
+    <p>Since the AngularJS framework library code and tools are acquired through
         package managers (e.g.
         npm) you can use these tools to easily update the dependencies. Simply run the preconfigured script:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm run update-deps
-</code></pre>
-    <p class="unchanged rich-diff-level-one">This will call <code>npm update</code> and <code>npm run copy-libs</code>,
+    <pre class="alert alert-dark" role="alert"><code>npm run update-deps</code></pre>
+    <p>This will call <code>npm update</code> and <code>npm run copy-libs</code>,
         which in turn will find and install the latest
         versions that match the version ranges specified in the <code>package.json</code> file.</p>
-    <p class="unchanged rich-diff-level-one">If you want to update a dependency to a version newer than what the
+    <p>If you want to update a dependency to a version newer than what the
         specificed range would permit,
         you can change the version range in <code>package.json</code> and then run <code>npm run update-deps</code> as
         usual.</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-loading-angularjs-asynchronously" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#loading-angularjs-asynchronously">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Loading AngularJS Asynchronously
-    </h2>
-    <p class="unchanged rich-diff-level-one">The <code>aopjs</code> project supports loading the framework and
+    <h2>Loading AngularJS Asynchronously</h2>
+    <p>The <code>aopjs</code> project supports loading the framework and
         application scripts asynchronously.
         The special <code>index-async.html</code> is designed to support this style of loading. For it to work you must
         inject a piece of AngularJS JavaScript into the HTML page. The project has a predefined script to help
         do this:</p>
-    <pre class="unchanged rich-diff-level-one"><code>npm run update-index-async
-</code></pre>
-    <p class="unchanged rich-diff-level-one">This will copy the contents of the <code>angular-loader.js</code> library
+    <pre class="alert alert-dark" role="alert"><code>npm run update-index-async</code></pre>
+    <p>This will copy the contents of the <code>angular-loader.js</code> library
         file into the <code>index-async.html</code>
         page. You can run this every time you update the version of AngularJS that you are using.</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-serving-the-application-files" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#serving-the-application-files">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Serving the Application Files
-    </h2>
-    <p class="unchanged rich-diff-level-one">While AngularJS is client-side-only technology and it is possible to create
+    <h2>Serving the Application Files</h2>
+    <p>While AngularJS is client-side-only technology and it is possible to create
         AngularJS web apps that
         do not require a backend server at all, we recommend serving the project files using a local
         web server during development to avoid issues with security restrictions (sandbox) in browsers. The
         sandbox implementation varies between browsers, but quite often prevents things like cookies, XHR,
         etc to function properly when an HTML page is opened via the <code>file://</code> scheme instead of <code>http://</code>.
     </p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-running-the-app-during-development" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#running-the-app-during-development">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Running the App during Development
-    </h3>
-    <p class="unchanged rich-diff-level-one">The <code>aopjs</code> project comes preconfigured with a local development
+    <h3>Running the App during Development</h3>
+    <p>The <code>aopjs</code> project comes preconfigured with a local development
         web server. It is a Node.js
         tool called <a href="https://github.com/indexzero/http-server">http-server</a>. You can start this web server
         with <code>npm start</code>, but you may
         choose to install the tool globally:</p>
-    <pre class="unchanged rich-diff-level-one"><code>sudo npm install -g http-server
-</code></pre>
-    <p class="unchanged rich-diff-level-one">Then you can start your own development web server to serve static files
+    <pre class="alert alert-dark" role="alert"><code>sudo npm install -g http-server</code></pre>
+    <p>Then you can start your own development web server to serve static files
         from any folder by running:</p>
-    <pre class="unchanged rich-diff-level-one"><code>http-server -a localhost -p 8000
-</code></pre>
-    <p class="unchanged rich-diff-level-one">Alternatively, you can choose to configure your own web server, such as
+    <pre class="alert alert-dark" role="alert"><code>http-server -a localhost -p 8000</code></pre>
+    <p>Alternatively, you can choose to configure your own web server, such as
         Apache or Nginx. Just
         configure your server to serve the files under the <code>app/</code> directory.</p>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-running-the-app-in-production" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#running-the-app-in-production">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Running the App in Production
-    </h3>
-    <p class="unchanged rich-diff-level-one">This really depends on how complex your app is and the overall
+    <h3>Running the App in Production</h3>
+    <p>This really depends on how complex your app is and the overall
         infrastructure of your system, but
         the general rule is that all you need in production are the files under the <code>app/</code> directory.
         Everything else should be omitted.</p>
-    <p class="unchanged rich-diff-level-one">AngularJS apps are really just a bunch of static HTML, CSS and JavaScript
+    <p>AngularJS apps are really just a bunch of static HTML, CSS and JavaScript
         files that need to be
         hosted somewhere they can be accessed by browsers.</p>
-    <p class="unchanged rich-diff-level-one">If your AngularJS app is talking to the backend server via XHR or other
+    <p>If your AngularJS app is talking to the backend server via XHR or other
         means, you need to figure
         out what is the best way to host the static files to comply with the same origin policy if
         applicable. Usually this is done by hosting the files by the backend server or through
         reverse-proxying the backend server(s) and web server(s).</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-continuous-integration" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#continuous-integration">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Continuous Integration
-    </h2>
-    <h3 class="unchanged rich-diff-level-one">
-        <a id="user-content-travis-ci" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#travis-ci">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Travis CI
-    </h3>
-    <p class="unchanged rich-diff-level-one"><a href="https://travis-ci.org/" rel="nofollow">Travis CI</a> is a
+    <h2>Continuous Integration</h2>
+    <h3>Travis CI</h3>
+    <p><a href="https://travis-ci.org/" rel="nofollow">Travis CI</a> is a
         continuous integration service, which can monitor GitHub for new commits to
         your repository and execute scripts such as building the app or running tests. The <code>aopjs</code>
         project contains a Travis configuration file, <code>.travis.yml</code>, which will cause Travis to run your
         tests when you push to GitHub.</p>
-    <p class="unchanged rich-diff-level-one">You will need to enable the integration between Travis and GitHub. See the
+    <p>You will need to enable the integration between Travis and GitHub. See the
         <a href="https://docs.travis-ci.com/user/getting-started" rel="nofollow">Travis website</a> for instructions on
         how to do this.</p>
-    <h2 class="unchanged rich-diff-level-one">
-        <a id="user-content-contact" class="anchor" aria-hidden="true"
-           href="/mmeilby/aopjs/blob/master/README.md#contact">
-            <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                 aria-hidden="true">
-                <path fill-rule="evenodd"
-                      d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-            </svg>
-        </a>Contact
-    </h2>
-    <p class="unchanged rich-diff-level-one">For more information on AngularJS please check out <a
-            href="https://angularjs.org/" rel="nofollow">angularjs.org</a>.</p>
+    <h2>Contact</h2>
+    <p>For more information on AngularJS please check out <a href="https://angularjs.org/" rel="nofollow">angularjs.org</a>.</p>
 </div>
 </body>
 </html>
